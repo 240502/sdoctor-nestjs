@@ -1,20 +1,19 @@
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
-// import { UsersModule } from './users/users.module';
-
+import { UserModule } from './modules/user/user.module';
 @Module({
   imports: [
     TypeOrmModule.forRoot({
       type: 'mysql',
-      host: 'localhost',
-      port: 13306,
+      host: '127.0.0.1',
+      port: 3306,
       username: 'root',
-      password: 'password',
+      password: 'root',
       database: 'sdoctor',
-      entities: [__dirname + '/models/*.entity{.ts,.js}'],
+      entities: [__dirname + '/models/*{.ts,.js}'],
       synchronize: true, // Chỉ dùng trong môi trường phát triển
     }),
-    // UsersModule,
+    UserModule,
   ],
 })
 export class AppModule {}
