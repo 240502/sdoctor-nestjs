@@ -1,7 +1,6 @@
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 // import { UsersModule } from './users/users.module';
-import { UsersModule } from './models/users/users.module';
 
 @Module({
   imports: [
@@ -12,10 +11,9 @@ import { UsersModule } from './models/users/users.module';
       username: 'root',
       password: 'password',
       database: 'sdoctor',
-      entities: [__dirname + '/**/*.entity{.ts,.js}'],
+      entities: [__dirname + '/models/*.entity{.ts,.js}'],
       synchronize: true, // Chỉ dùng trong môi trường phát triển
     }),
-    UsersModule,
     // UsersModule,
   ],
 })
